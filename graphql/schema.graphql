@@ -1,0 +1,11 @@
+type personTable{
+    name: String!,
+    age: Int!,
+    sex: String!,
+}
+
+type Query{
+    person: personTable!
+}
+
+
