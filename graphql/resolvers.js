@@ -1,14 +1,14 @@
 
-const personTable = {
-    name: "youngun",
-    age: 34,
-    sex: "Male",
-}
+import { getMovies, getById, deleteMovie, addMovie } from './db';
 
 const resolvers = {
     Query:{
-        person: ()=> personTable
-    }
-}
-
+      movies: () => getMovies(),
+      movie: (_,{id}) => getById(id),
+    },
+    Mutation:{
+      addMovie: (_, {name, score}) => addMovie(name, score),
+      deleteMovie: (_, {id}) => deleteMovie(id),
+    },
+};
 export default resolvers;
